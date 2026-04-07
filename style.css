@@ -1,0 +1,159 @@
+/* style.css */
+body {
+    background-color: #0f172a; /* Biru sangat gelap */
+    color: #f8fafc;
+    font-family: 'Segoe UI', sans-serif;
+    margin: 0;
+    padding: 0;
+}
+/* Gaya Container Pencarian */
+.search-container {
+    padding: 20px 10%;
+    display: flex;
+    justify-content: center;
+    background: rgba(15, 23, 42, 0.9);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(10px); /* Efek blur di belakang menu */
+}
+
+.search-box {
+    display: flex;
+    width: 100%;
+    max-width: 600px;
+    background: rgba(255, 255, 255, 0.1);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    border-radius: 50px; /* Membuat lonjong */
+    padding: 5px 15px;
+    transition: all 0.3s ease;
+}
+
+.search-box:focus-within {
+    border-color: #e11d48;
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 0 15px rgba(225, 29, 72, 0.3);
+}
+
+.search-input {
+    background: transparent;
+    border: none;
+    color: white;
+    padding: 10px;
+    width: 100%;
+    outline: none;
+    font-size: 1rem;
+}
+
+.search-input::placeholder {
+    color: #94a3b8;
+}
+
+.search-button {
+    background: transparent;
+    border: none;
+    color: #94a3b8;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    padding: 0 10px;
+}
+
+.search-button:hover {
+    color: #e11d48;
+}
+
+/* Identitas khusus untuk class film (opsional jika ingin dekorasi berbeda) */
+.raja-naga:hover {
+    border-color: #ffd700; /* Warna emas untuk Raja Naga */
+}
+
+.dewa-perang:hover {
+    border-color: #ff4500; /* Warna merah api untuk Dewa Perang */
+}
+/* Section Utama */
+.main-detail {
+    padding: 60px 10%;
+    background: linear-gradient(to bottom, rgba(15, 23, 42, 0.7), #0f172a), 
+                url('https://via.placeholder.com/1200x600'); /* Backdrop image */
+    background-size: cover;
+}
+
+.hero-content {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.poster-large img {
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.5);
+}
+
+.info-text h1 {
+    font-size: 3rem;
+    margin-bottom: 10px;
+}
+
+.meta {
+    color: #94a3b8;
+    margin-bottom: 20px;
+}
+
+.btn-play {
+    background-color: #e11d48; /* Warna merah aksen */
+    color: white;
+    border: none;
+    padding: 12px 24px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.btn-play:hover {
+    background-color: #be123c;
+}
+
+/* Grid Daftar Putar */
+.playlist-section {
+    padding: 40px 10%;
+}
+
+.movie-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 20px;
+}
+
+.movie-card {
+    background: rgba(30, 41, 59, 0.5); /* Semi transparan */
+    border-radius: 10px;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.movie-card:hover {
+    transform: translateY(-10px);
+    background: rgba(30, 41, 59, 0.8);
+}
+
+.movie-card img {
+    width: 100%;
+    height: auto;
+}
+
+.card-info {
+    padding: 12px;
+}
+
+.card-info h3 {
+    font-size: 1rem;
+    margin: 0 0 5px 0;
+}
+
+.card-info span {
+    font-size: 0.8rem;
+    color: #94a3b8;
+}

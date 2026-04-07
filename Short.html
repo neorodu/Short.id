@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Layar Film Short - YouTube</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #000;
+            color: white;
+            font-family: Arial, sans-serif;
+            overflow: hidden;
+            height: 100vh;
+        }
+        .container {
+            height: 100vh;
+            overflow-y: scroll;
+            scroll-snap-type: y mandatory;
+            -webkit-overflow-scrolling: touch;
+        }
+        .video-slide {
+            height: 100vh;
+            width: 100%;
+            scroll-snap-align: start;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: #111;
+        }
+        .video-wrapper {
+            position: relative;
+            width: 100%;
+            max-width: 400px; /* Lebar seperti HP (bisa diubah) */
+            height: 100%;
+            background: black;
+        }
+        iframe {
+            width: 100%;
+            height: 100%;
+            border: none;
+        }
+        .overlay {
+            position: absolute;
+            bottom: 20px;
+            left: 20px;
+            right: 20px;
+            z-index: 10;
+            pointer-events: none;
+        }
+        .title {
+            font-size: 18px;
+            font-weight: bold;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+        .desc {
+            font-size: 14px;
+            opacity: 0.9;
+            margin-top: 5px;
+        }
+        /* Scrollbar biar ga keliatan */
+        .container::-webkit-scrollbar {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container" id="container">
+    <!-- Video akan ditambah lewat JavaScript -->
+</div>
+
+<script>
+    // GANTI DAFTAR VIDEO DI SINI (YouTube Shorts)
+    const videos = [
+        {
+            id: "mgtiUIlWkhw",           // Contoh: ganti dengan ID video Shorts kamu
+            title: "Short Film Pertama",
+            desc: "Cerita pendek yang bikin ketawa 😂"
+        },
+        {
+            id: "pVRefGmQDJM",           // Contoh lain
+            title: "Short Kedua",
+            desc: "Drama mini yang menyentuh hati ❤️"
+        },
+        {
+            id: "VIDEO_ID_KETIGA",      // Tambah sebanyak yang kamu mau
+            title: "Short Ketiga",
+            desc: "Aksi seru!"
+        }
+        // Tambahkan lebih banyak object di atas sesuai kebutuhan
+    ];
+
+    const container = document.getElementById('container');
+
+    videos.forEach(video => {
+        const slide = document.createElement('div');
+        slide.className = 'video-slide';
+
+        slide.innerHTML = `
+            <div class="video-wrapper">
+                <iframe 
+                    src="https://www.youtube.com/embed/${video.id}?autoplay=0&modestbranding=1&rel=0" 
+                    allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                    allowfullscreen>
+                </iframe>
+            </div>
+            <div class="overlay">
+                <div class="title">${video.title}</div>
+                <div class="desc">${video.desc}</div>
+            </div>
+        `;
+
+        container.appendChild(slide);
+    });
+
+    // Opsional: Auto pause video saat scroll (agak ribet karena iframe, tapi bisa dicoba)
+    console.log("Web short film siap! Scroll ke bawah untuk ganti video.");
+</script>
+
+</body>
+</html>

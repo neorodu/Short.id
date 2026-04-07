@@ -1,0 +1,281 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Katalog Movie Modern - Tuying</title>
+    <style>
+        /* --- CSS STYLE --- */
+        body {
+            background-color: #0f172a; /* Biru gelap profesional */
+            color: #f8fafc;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigasi & Pencarian */
+        nav {
+            padding: 20px 5%;
+            background: rgba(15, 23, 42, 0.9);
+            position: sticky;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            display: flex;
+            justify-content: center;
+        }
+
+        .search-box {
+            display: flex;
+            width: 100%;
+            max-width: 500px;
+            background: rgba(255, 255, 255, 0.1);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 50px;
+            padding: 5px 20px;
+            transition: 0.3s;
+        }
+
+        .search-box:focus-within {
+            border-color: #e11d48;
+            box-shadow: 0 0 15px rgba(225, 29, 72, 0.3);
+        }
+
+        .search-input {
+            background: transparent;
+            border: none;
+            color: white;
+            padding: 10px;
+            width: 100%;
+            outline: none;
+        }
+
+        /* Bagian Utama (Hero / Pemutar) */
+        .main-detail {
+            padding: 60px 10%;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            background: linear-gradient(to bottom, transparent, #0f172a);
+        }
+
+        .hero-content {
+            display: flex;
+            gap: 40px;
+            flex-wrap: wrap;
+        }
+
+        .poster-large img {
+            width: 280px;
+            border-radius: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.6);
+            transition: 0.5s;
+        }
+
+        .info-text {
+            flex: 1;
+            max-width: 600px;
+        }
+
+        .info-text h1 {
+            font-size: 3.5rem;
+            margin: 0 0 10px 0;
+        }
+
+        .meta {
+            color: #94a3b8;
+            font-size: 1.1rem;
+            margin-bottom: 20px;
+        }
+
+        .description {
+            line-height: 1.6;
+            color: #cbd5e1;
+            margin-bottom: 30px;
+        }
+
+        .btn-play {
+            background-color: #e11d48;
+            color: white;
+            border: none;
+            padding: 15px 35px;
+            border-radius: 50px;
+            font-weight: bold;
+            cursor: pointer;
+            font-size: 1rem;
+        }
+
+        /* Grid Hasil Pencarian & Daftar Putar */
+        .playlist-section {
+            padding: 40px 10%;
+        }
+
+        .movie-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+            gap: 25px;
+            margin-top: 20px;
+        }
+
+        .movie-card {
+            background: rgba(30, 41, 59, 0.5);
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: 0.3s ease;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .movie-card:hover {
+            transform: scale(1.05);
+            background: rgba(30, 41, 59, 1);
+            border-color: #e11d48;
+        }
+
+        .movie-card img {
+            width: 100%;
+            height: 250px;
+            object-fit: cover;
+        }
+
+        .card-info {
+            padding: 12px;
+        }
+
+        .card-info h3 {
+            font-size: 1rem;
+            margin: 0;
+        }
+
+        .card-info span {
+            font-size: 0.8rem;
+            color: #94a3b8;
+        }
+
+        /* Responsif HP */
+        @media (max-width: 768px) {
+            .hero-content { justify-content: center; text-align: center; }
+            .info-text h1 { font-size: 2.5rem; }
+        }
+        .video-container {
+    position: relative;
+    width: 100%;
+    max-width: 860px;
+}
+#video-player {
+    width: 100%;
+    aspect-ratio: 16 / 9;
+    height: auto;
+}
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="search-box">
+            <input type="text" id="pencarian" placeholder="Cari: Raja Naga atau Dewa Perang..." class="search-input">
+        </div>
+    </nav>
+
+<section class="main-detail">
+    <div class="hero-content">
+        <div class="video-container">
+            <iframe id="video-player" width="560" height="315" 
+                src="" 
+                title="YouTube video player" 
+                frameborder="0" 
+                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" 
+                allowfullscreen 
+                style="display: none; border-radius: 15px; box-shadow: 0 20px 40px rgba(0,0,0,0.6);">
+            </iframe>
+            <img id="main-poster" src="https://via.placeholder.com/280x400?text=Pilih+Film" alt="Poster Utama" style="border-radius: 15px;">
+        </div>
+        
+        <div class="info-text">
+            <h1 id="main-title">Selamat Datang</h1>
+            <p id="main-meta" class="meta">Pilih film favoritmu</p>
+            <p id="main-desc" class="description">
+                Klik salah satu film di bawah untuk memutar video dari YouTube.
+            </p>
+            </div>
+    </div>
+</section>
+<section id="search-section" class="playlist-section">
+    <h2 id="label-section">Daftar Film Populer</h2>
+    <div class="movie-grid">
+        
+        <div class="movie-card movie-item" data-title="raja naga" onclick="pilihFilm('Raja Naga', 'Action • Fantasy • 2024', 'Sinopsis Raja Naga...', 'jUA_u2EWJiM')">
+            <img src="https://via.placeholder.com/280x400/FFD700/000?text=Raja+Naga" alt="Raja Naga">
+            <div class="card-info">
+                <h3>Raja Naga</h3>
+                <span>Action • Fantasy</span>
+            </div>
+        </div>
+
+        <div class="movie-card movie-item" data-title="dewa perang sejati" onclick="pilihFilm('Dewa Perang Sejati', 'War • Epic • 2024', 'Sinopsis Dewa Perang...', 'ID_VIDEO_YOUTUBE_2')">
+            <img src="https://via.placeholder.com/280x400/FF4500/FFF?text=Dewa+Perang" alt="Dewa Perang Sejati">
+            <div class="card-info">
+                <h3>Dewa Perang Sejati</h3>
+                <span>War • Epic</span>
+            </div>
+        </div>
+
+    </div>
+</section>
+
+    <script>
+const inputCari = document.getElementById('pencarian');
+const allMovies = document.querySelectorAll('.movie-item');
+
+inputCari.addEventListener('input', function() {
+    const keyword = this.value.toLowerCase(); // Ambil teks yang diketik
+
+    allMovies.forEach(movie => {
+        const title = movie.getAttribute('data-title');
+        
+        // Jika judul film mengandung kata yang diketik, munculkan. Jika tidak, sembunyikan.
+        if (title.includes(keyword)) {
+            movie.style.display = 'block';
+        } else {
+            movie.style.display = 'none';
+        }
+    });
+});
+
+        // 2. Fungsi saat film diklik (Ganti detail utama)
+        function pilihFilm(judul, meta, deskripsi, gambar) {
+            document.getElementById('main-title').innerText = judul;
+            document.getElementById('main-meta').innerText = meta;
+            document.getElementById('main-desc').innerText = deskripsi;
+            document.getElementById('main-poster').src = gambar;
+            
+            // Ubah label bawah
+            document.getElementById('label-section').innerText = "Daftar Putar Selanjutnya";
+
+            // Scroll ke atas otomatis
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+        }
+        
+        function pilihFilm(judul, meta, deskripsi, ytId) {
+    // 1. Sembunyikan poster, munculkan player video
+    document.getElementById('main-poster').style.display = 'none';
+    const player = document.getElementById('video-player');
+    player.style.display = 'block';
+
+    // 2. Ganti Sumber Video YouTube (Autoplay aktif)
+    player.src = "https://www.youtube.com/embed/" + ytId + "?autoplay=1";
+
+    // 3. Ganti Info Teks
+    document.getElementById('main-title').innerText = judul;
+    document.getElementById('main-meta').innerText = meta;
+    document.getElementById('main-desc').innerText = deskripsi;
+
+    // Scroll ke atas agar langsung kelihatan videonya
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+}
+    </script>
+
+</body>
+</html>
