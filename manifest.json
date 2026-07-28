@@ -1,0 +1,33 @@
+{
+  "name": "NeonEQ Player",
+  "short_name": "NeonEQ",
+  "description": "Music player dengan Equalizer 3D Knobs",
+  "start_url": "./index.html",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#0a0a12",
+  "theme_color": "#0a0a12",
+  "lang": "id",
+  "icons": [
+    {
+      "src": "icons/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    }
+  ],
+  "categories": ["music", "entertainment"],
+  "shortcuts": [
+    {
+      "name": "Buka Player",
+      "url": "./index.html",
+      "description": "Langsung buka music player"
+    }
+  ]
+}
