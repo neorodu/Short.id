@@ -3,11 +3,11 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>NeonEQ - Flute Music</title>
+<title> Flute Music</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500;600;700;900&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
-<link href="style.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet">
 </head>
 <body>
 
@@ -17,7 +17,7 @@
   <div class="header">
     <div class="logo">
       <span class="logo-icon">◈</span>
-      <span class="logo-text">NeonEQ</span>
+      <span class="logo-text">Flutemusic</span>
     </div>
     <button class="btn-upload" id="btnUpload">+ Tambah Lagu</button>
     <input type="file" id="fileInput" accept="audio/*" multiple hidden>
@@ -51,7 +51,7 @@
       </div>
 
       <div class="controls">
-        <button class="ctrl-btn mode-btn" id="btnShuffle" title="Shuffle">⤨</button>
+        <button class="ctrl-btn mode-btn" id="btnShuffle" title="Shuffle">🔀</button>
         <button class="ctrl-btn" id="btnPrev" title="Previous">⏮</button>
         <button class="ctrl-btn play-btn" id="btnPlay" title="Play/Pause">▶</button>
         <button class="ctrl-btn" id="btnNext" title="Next">⏭</button>
@@ -95,7 +95,7 @@
       <div class="playlist-section">
         <h3>PLAYLIST <span id="trackCount">0</span></h3>
         <ul class="playlist" id="playlist"></ul>
-        <div class="hint">Drag &amp; drop file audio ke sini, atau klik "Tambah Lagu"</div>
+        <div class="hint">Drag &amp; "Tambah Lagu"</div>
       </div>
 
     </div>
@@ -103,7 +103,7 @@
   </div>
 </div>
 
-<script src="player.js"></script>
+<script src="js/player.js"></script>
 <script>
   document.getElementById('btnUpload').addEventListener('click', () => {
     document.getElementById('fileInput').click();
